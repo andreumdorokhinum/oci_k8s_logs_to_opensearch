@@ -82,7 +82,7 @@ The output sections describes target configuration:
 The nodes' OS (Oracle Linux Server) has Security Enhanced Linux (SELinux) kernel modifications, which
 by default prevents fluent-bit from reading logs.
 
-OCI > Developer Services > Kubernetes Clusters (OKE) > your_cluster >
+> OCI > Developer Services > Kubernetes Clusters (OKE) > your_cluster >
 > Node pools > your_pool > edit > Advanced options > Initialization script > Download Current Script
 
 Edit the script and add these lines to allow fluent-bit access logs:
