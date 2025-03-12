@@ -94,6 +94,8 @@ Edit the script and add these lines to allow fluent-bit access logs:
     sudo ausearch -c 'pmdaproc' --raw | sudo audit2allow -M my-pmdaproc
     sudo semodule -X 300 -i my-pmdaproc.pp
 
+After uploading the script, cycle nodes.
+
 ### Validating the setup
         sudo vim /var/log/containers/test.log
             ### this is a test log
