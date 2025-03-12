@@ -48,6 +48,7 @@ Allowed values are: off, error, warn, info, debug, and trace.
 (https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file)
 
 By deafult, logs are read from the kubelet systemd unit as well as from containers:
+
         [INPUT]
             Name tail
             Path /var/log/containers/*.log
@@ -63,6 +64,7 @@ By deafult, logs are read from the kubelet systemd unit as well as from containe
             Read_From_Tail On
 
 The output sections describes target configuration:
+
         [OUTPUT]
             name               opensearch
             match              *
@@ -84,6 +86,7 @@ OCI > Developer Services > Kubernetes Clusters (OKE) > your_cluster >
 > Node pools > your_pool > edit > Advanced options > Initialization script > Download Current Script
 
 Edit the script and add these lines to allow fluent-bit access logs:
+
     sudo ausearch -c 'flb-pipeline' --raw | sudo audit2allow -M my-flbpipeline
     sudo semodule -X 300 -i my-flbpipeline.pp
     sudo ausearch -c 'flb-logger' --raw | sudo audit2allow -M my-flblogger
@@ -96,6 +99,7 @@ Edit the script and add these lines to allow fluent-bit access logs:
             ### this is a test log
 
 OpenSearch Dashboards` query workbench:
+
           SELECT *
             FROM k8s_logs
            WHERE log LIKE '%this is a test log%'
